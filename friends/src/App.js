@@ -27,9 +27,12 @@ class App extends React.Component{
     return (
       <div className="App">
         <h1>Friends</h1>
-        <Friends
-        friends={this.state.friends}
-        />
+        <h2>This is my friend's list:</h2>
+        <div className="all-my-friends"> 
+          <Friends
+          friends={this.state.friends}
+          />
+        </div>
       </div>
     );
   }
