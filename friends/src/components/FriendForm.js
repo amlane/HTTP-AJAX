@@ -8,7 +8,7 @@ function FriendForm(props){
                 <p>Name: <input /></p>
                 <p>Age: <input /></p>
                 <p>Email: <input /></p>
-                <button>Submit</button>
+                <button onClick={props.submitForm}>Submit</button>
             </form>
         </div>
     )

@@ -26,11 +26,18 @@ class App extends React.Component{
        })
   }
 
+  submitForm = e => {
+    e.preventDefault();
+    console.log('you clicked me!')
+  }
+
     render(){
     return (
       <div className="App">
         <h1>Friends</h1>
-        <FriendForm />
+        <FriendForm
+        submitForm={this.submitForm}
+        />
         <h2>Friends List</h2>
         <div className="all-my-friends"> 
           <Friends

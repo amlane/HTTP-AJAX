@@ -59,6 +59,7 @@ h3 {
   background-size: cover;
   width: 300px;
   margin: 0 auto;
+  border-radius: 8px;
 }
 
 .add-new-friend {
@@ -72,6 +73,7 @@ h3 {
   margin: 0 auto;
   opacity: 0.8;
   font-weight: bold;
+  border-radius: 8px;
 }
 
 .add-new-friend input {
@@ -86,6 +88,10 @@ h3 {
   border: 1px solid #455561;
   background: transparent;
   font-weight: bold;
+}
+
+.add-new-friend button:focus {
+  outline: none;
 }
 
 .add-new-friend button:hover {
