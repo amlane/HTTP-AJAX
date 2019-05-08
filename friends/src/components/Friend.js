@@ -5,11 +5,11 @@ function Friend(props){
     return (
         <div className="friend-card" key={props.friend.id}>
             <img className="profile-pic" src={`https://placekitten.com/200/${num}`} alt="cats are my only friends" />
-            <p><strong>Name:</strong> {props.friend.name}</p>
-            <p><strong>Age:</strong> {props.friend.age}</p>
-            <p><strong>Email:</strong> {props.friend.email}</p>
-            <p></p>
-            <p></p>
+            <section className="friend-info">
+                <p><strong>Name:</strong> {props.friend.name}</p>
+                <p><strong>Age:</strong> {props.friend.age}</p>
+                <p><strong>Email:</strong> {props.friend.email}</p>
+            </section>
          </div>
     )
 }
