@@ -1,21 +1,21 @@
 import React from 'react';
 
-class FriendForm extends React.Component{
+class UpdateFriend extends React.Component{
     constructor(props){
         super(props);
         this.state = {
-            newFriend: {
-                name: '',
-                age: '',
-                email: ''
+            updatedFriend: {
+                name: this.props.friend.name,
+                age: this.props.friend.age,
+                email: this.props.friend.email
                 }
         }
     }
 
     changeHandler = (e) => {
     this.setState({ 
-      newFriend: {
-        ...this.state.newFriend,
+      updatedFriend: {
+        ...this.state.updatedFriend,
         [e.target.name]: e.target.value 
        }
     })
@@ -23,20 +23,20 @@ class FriendForm extends React.Component{
 
   handleSubmit = e => {
       e.preventDefault();
-      this.props.addFriend(this.state.newFriend)
+      this.props.updateFriend(this.state.updatedFriend, this.props.friend.id)
   }
 
     render(){
     return(
         <div className="form-background">
             <form className="add-new-friend" onSubmit={this.handleSubmit}>
-                <h3>Add a friend!</h3>
+                <h3>Edit friend!</h3>
                 <p>Name: 
                     <input
                     name="name"
                     placeholder="...enter name"
                     onChange={this.changeHandler}
-                    value={this.state.newFriend.name}
+                    value={this.state.updatedFriend.name}
                     />
                 </p>
                 <p>Age: 
@@ -44,7 +44,7 @@ class FriendForm extends React.Component{
                     name="age"
                     placeholder="...enter age"
                     onChange={this.changeHandler}
-                    value={this.state.newFriend.age}
+                    value={this.state.updatedFriend.age}
                     />
                 </p>
                 <p>Email: 
@@ -52,7 +52,7 @@ class FriendForm extends React.Component{
                     name="email"
                     placeholder="...enter email"
                     onChange={this.changeHandler}
-                    value={this.state.newFriend.email}
+                    value={this.state.updatedFriend.email}
                     />
                 </p>
                 <button>Submit</button>
@@ -62,4 +62,4 @@ class FriendForm extends React.Component{
     }
 }
 
-export default FriendForm;
+export default UpdateFriend;

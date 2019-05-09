@@ -1,16 +1,23 @@
 import React from 'react';
+import UpdateFriend from './UpdateFriend';
 
 class Friend extends React.Component{
     constructor(props){
         super(props);
         this.state = {
-            friend: null
+            friend: this.props.friend,
+            clicked: false
         }
     }
 
-    deleteFriend = e => {
+    deleteFriend = (e) => {
         e.preventDefault();
         this.props.deleteFriend(this.state.friend.id)
+    }
+
+    toggleEdit = (e) => {
+        e.preventDefault();
+        this.setState(prevState => ({ clicked: !prevState.clicked }))
     }
 
     render(){
@@ -25,9 +32,12 @@ class Friend extends React.Component{
                     <p><strong>Name:</strong> {this.props.friend.name}</p>
                     <p><strong>Age:</strong> {this.props.friend.age}</p>
                     <p><strong>Email:</strong> {this.props.friend.email}</p>
-                    <button className="edit-btn">e</button>
-                    <button onClick={this.props.deleteFriend} className="delete-btn">X</button>
+                    <div className="btn-container">
+                    <button onClick={this.toggleEdit} className="edit-btn">edit</button>
+                    <button onClick={this.deleteFriend} className="delete-btn">X</button>
+                    </div>
                 </section>
+                {this.state.clicked && <UpdateFriend friend={this.state.friend} updateFriend={this.props.updateFriend} />} 
             </div>
         )
     }

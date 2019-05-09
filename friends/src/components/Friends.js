@@ -10,6 +10,7 @@ function Friends(props){
                 friend={friend}
                 key={friend.id}
                 deleteFriend={props.deleteFriend}
+                updateFriend={props.updateFriend}
                 />
             )
         })}
