@@ -44,7 +44,11 @@ class App extends React.Component{
     e.preventDefault();
     this.setState({ 
       friends: [...this.state.friends, this.state.newFriend],
-      newFriend: ""
+      newFriend: {
+      name: "",
+      age: "",
+      email: ""
+      }
      })
   }
 
