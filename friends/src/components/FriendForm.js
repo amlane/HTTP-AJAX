@@ -7,7 +7,8 @@ class FriendForm extends React.Component{
             newFriend: {
                 name: '',
                 age: '',
-                email: ''
+                email: '', 
+                id: Date.now()
                 }
         }
     }

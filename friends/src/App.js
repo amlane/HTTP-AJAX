@@ -35,40 +35,25 @@ class App extends React.Component{
     .catch(err => console.log(err))
   }
 
-  // submitForm = e => {
-  //   e.preventDefault();
-  //   this.setState({ 
-  //     friends: [...this.state.friends, this.state.newFriend],
-  //     newFriend: {
-  //     name: "",
-  //     age: "",
-  //     email: ""
-  //     }
-  //    })
-  // }
-
-  // changeHandler = (e) => {
-  //   this.setState({ 
-  //     newFriend: {
-  //       ...this.state.newFriend,
-  //       [e.target.name]: e.target.value 
-  //      }
-  //   })
-  // }
+  deleteFriend = id => {
+    axios
+    .delete(`http://localhost:5000/friends/${id}`)
+    .then(res => console.log(res))
+    .catch(err => console.log(err))
+  }
 
     render(){
     return (
       <div className="App">
         <h1>Lego Friends</h1>
         <FriendForm
-        // submitForm={this.submitForm}
-        // changeHandler={this.changeHandler}
         addFriend={this.addFriend}
         />
         <h2>Friends List</h2>
         <div className="all-my-friends"> 
           <Friends
           friends={this.state.friends}
+          deleteFriend={this.deleteFriend}
           />
         </div>
 

@@ -12,6 +12,7 @@ function Friend(props){
                 <p><strong>Name:</strong> {props.friend.name}</p>
                 <p><strong>Age:</strong> {props.friend.age}</p>
                 <p><strong>Email:</strong> {props.friend.email}</p>
+                <button onClick={props.deleteFriend} className="delete-btn">X</button>
             </section>
          </div>
     )
