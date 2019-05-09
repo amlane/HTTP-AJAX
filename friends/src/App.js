@@ -34,7 +34,7 @@ class App extends React.Component{
     render(){
     return (
       <div className="App">
-        <h1>Friends</h1>
+        <h1>Lego Friends</h1>
         <FriendForm
         submitForm={this.submitForm}
         />
