@@ -12,16 +12,30 @@ class FriendForm extends React.Component{
         }
     }
 
+    changeHandler = (e) => {
+    this.setState({ 
+      newFriend: {
+        ...this.state.newFriend,
+        [e.target.name]: e.target.value 
+       }
+    })
+  }
+
+  handleSubmit = e => {
+      e.preventDefault();
+      this.props.addFriend(this.state.newFriend)
+  }
+
     render(){
     return(
         <div className="form-background">
-            <form className="add-new-friend" onSubmit={this.props.submitForm}>
+            <form className="add-new-friend" onSubmit={this.handleSubmit}>
                 <h3>Add a friend!</h3>
                 <p>Name: 
                     <input
                     name="name"
                     placeholder="...enter name"
-                    onChange={this.props.changeHandler}
+                    onChange={this.changeHandler}
                     value={this.props.name}
                     />
                 </p>
@@ -29,7 +43,7 @@ class FriendForm extends React.Component{
                     <input 
                     name="age"
                     placeholder="...enter age"
-                    onChange={this.props.changeHandler}
+                    onChange={this.changeHandler}
                     value={this.props.age}
                     />
                 </p>
@@ -37,7 +51,7 @@ class FriendForm extends React.Component{
                     <input 
                     name="email"
                     placeholder="...enter email"
-                    onChange={this.props.changeHandler}
+                    onChange={this.changeHandler}
                     value={this.props.email}
                     />
                 </p>
