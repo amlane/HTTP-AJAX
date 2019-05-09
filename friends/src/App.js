@@ -10,7 +10,10 @@ class App extends React.Component{
   constructor(){
     super()
     this.state = {
-      friends: []
+      friends: [],
+      name: '',
+      age: '',
+      email: ''
     }
   }
 
@@ -28,7 +31,21 @@ class App extends React.Component{
 
   submitForm = e => {
     e.preventDefault();
-    console.log('you clicked me!')
+    let newLegoFriend = {
+      name: this.state.name,
+      age: this.state.age,
+      email: this.state.email
+    }
+
+    this.setState(prevState => {
+      return {
+        friends: [...prevState.friends, newLegoFriend]
+      }
+    })
+  }
+
+  changeHandler = (e) => {
+    this.setState({ [e.target.name]: e.target.value })
   }
 
     render(){
@@ -37,6 +54,7 @@ class App extends React.Component{
         <h1>Lego Friends</h1>
         <FriendForm
         submitForm={this.submitForm}
+        changeHandler={this.changeHandler}
         />
         <h2>Friends List</h2>
         <div className="all-my-friends"> 

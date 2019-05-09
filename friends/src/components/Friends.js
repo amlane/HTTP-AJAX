@@ -8,6 +8,7 @@ function Friends(props){
             return (
                 <Friend
                 friend={friend}
+                key={friend.id}
                 />
             )
         })}
