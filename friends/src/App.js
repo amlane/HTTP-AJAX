@@ -10,12 +10,7 @@ class App extends React.Component{
   constructor(){
     super()
     this.state = {
-      friends: [],
-      newFriend: {
-      name: '',
-      age: '',
-      email: ''
-      }
+      friends: []
     }
   }
 
@@ -59,7 +54,6 @@ class App extends React.Component{
         <FriendForm
         submitForm={this.submitForm}
         changeHandler={this.changeHandler}
-        friend={this.state.friend}
         />
         <h2>Friends List</h2>
         <div className="all-my-friends"> 
