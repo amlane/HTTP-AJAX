@@ -11,9 +11,11 @@ class App extends React.Component{
     super()
     this.state = {
       friends: [],
+      newFriend: {
       name: '',
       age: '',
       email: ''
+      }
     }
   }
 
@@ -29,23 +31,21 @@ class App extends React.Component{
        })
   }
 
-  submitForm = e => {
-    e.preventDefault();
-    let newLegoFriend = {
-      name: this.state.name,
-      age: this.state.age,
-      email: this.state.email
-    }
-
-    this.setState(prevState => {
-      return {
-        friends: [...prevState.friends, newLegoFriend]
-      }
+  changeHandler = (e) => {
+    this.setState({ 
+      newFriend: {
+        ...this.state.newFriend,
+        [e.target.name]: e.target.value 
+       }
     })
   }
 
-  changeHandler = (e) => {
-    this.setState({ [e.target.name]: e.target.value })
+  submitForm = e => {
+    e.preventDefault();
+    this.setState({ 
+      friends: [...this.state.friends, this.state.newFriend],
+      newFriend: ""
+     })
   }
 
     render(){
@@ -55,6 +55,7 @@ class App extends React.Component{
         <FriendForm
         submitForm={this.submitForm}
         changeHandler={this.changeHandler}
+        friend={this.state.friend}
         />
         <h2>Friends List</h2>
         <div className="all-my-friends"> 
