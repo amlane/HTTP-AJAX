@@ -35,10 +35,12 @@ class App extends React.Component{
     .catch(err => console.log(err))
   }
 
-  deleteFriend = id => {
+  deleteFriend = (id) => {
     axios
     .delete(`http://localhost:5000/friends/${id}`)
-    .then(res => console.log(res))
+    .then(res => {
+      this.setState({ friends: res.data })
+    })
     .catch(err => console.log(err))
   }
 
